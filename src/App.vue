@@ -1,15 +1,40 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <LifeCycleComponente />
+  <hr>
+  <HookCreatedComponent />
+  <hr>
+  <HookMountedComponent />
+  <hr>
+  <HookUpdatedComponent />
+  <hr>
+  <div v-if="mostrar">
+    <HookDestroyedComponent />
+  </div>
+  <button v-on:click="mostrar=true">Mostrar</button><button v-on:click="mostrar=false">No Mostrar</button>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import LifeCycleComponente from '@/components/LifeCycleComponente.vue';
+import HookCreatedComponent from '@/components/HookCreatedComponent.vue';
+import HookMountedComponent from '@/components/HookMountedComponent.vue';
+import HookUpdatedComponent from '@/components/HookUpdatedComponent.vue';
+import HookDestroyedComponent from '@/components/HookDestroyedComponent.vue';
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    LifeCycleComponente,
+    HookCreatedComponent,
+    HookMountedComponent,
+    HookUpdatedComponent,
+    HookDestroyedComponent,
+  },
+  data:function(){
+    return{
+      mostrar:true,
+    }
   }
 }
 </script>
